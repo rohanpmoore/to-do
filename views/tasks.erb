@@ -1,0 +1,16 @@
+<h3><%= @list.name %></h3>
+<ul>
+  <% @list.tasks.each do |task| %>
+  <li><%= task.description %>, <%= task.type %></li>
+  <% end %>
+</ul>
+
+<form action="/lists/<%= @list.id() %>" method="post">
+  <label for="description">Description:</label>
+  <input type="text" name="description">
+  <label for="type">Type</label>
+  <input type="text" name="type">
+  <button type="submit" name="button">Add task</button>
+</form>
+
+<a href="/lists"><button class="button btn">Return to Lists</button></a>
